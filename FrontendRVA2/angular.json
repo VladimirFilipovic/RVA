@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "FrontendRVA2"
+    }
+  },
+  "defaultProject": "FrontendRVA2",
+  "cli": {
+    "analytics": "2f7c9440-b693-4d8b-bfea-53303d4e7d2b"
+  }
 }
