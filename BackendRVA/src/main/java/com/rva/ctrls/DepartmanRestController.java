@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -61,6 +62,7 @@ public class DepartmanRestController {
 	}
 	
 	@PostMapping("departmani")
+	@CrossOrigin
 	@ApiOperation(value = "Dodaje departman u bazu podataka")
 	public ResponseEntity<Departman> insertDepartman(@RequestBody Departman departman) {
 		if(!departmanRepository.existsById(departman.getId())) {
@@ -71,6 +73,7 @@ public class DepartmanRestController {
 	}
 	
 	@PutMapping("departmani")
+	@CrossOrigin
 	@ApiOperation(value = "Modifikuje departman u bazi podataka")
 	public ResponseEntity<Departman> updateDepartman(@RequestBody Departman departman) {
 		if(!departmanRepository.existsById(departman.getId())) {
@@ -82,6 +85,7 @@ public class DepartmanRestController {
 	
 	@Transactional
 	@DeleteMapping("departman/{id}")
+	@CrossOrigin
 	@ApiOperation(value = "Briše departman iz baze podataka čiji ID odgovara vrednosti koja je prosleđena kao path varijabla")
 	public ResponseEntity<Departman> deleteDepartman(@PathVariable("id")Integer id) {
 		if(id == -100) {

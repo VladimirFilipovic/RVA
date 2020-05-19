@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -49,6 +50,7 @@ public class StatusRestContorller {
 	}
 	
 	@PostMapping("statusi")
+	@CrossOrigin
 	@ApiOperation(value = "Dodaje status u bazu podataka")
 	public ResponseEntity<Status> insertStatus(@RequestBody Status status) {
 		if(!statusRepository.existsById(status.getId())) {
@@ -59,6 +61,7 @@ public class StatusRestContorller {
 	}
 	
 	@PutMapping("statusi")
+	@CrossOrigin
 	@ApiOperation(value = "Modifikuje status u bazi podataka")
 	public ResponseEntity<Status> updateStatus(@RequestBody Status status) {
 		if(!statusRepository.existsById(status.getId())) {
@@ -69,6 +72,7 @@ public class StatusRestContorller {
 	}
 	
 	@DeleteMapping("status/{id}")
+	@CrossOrigin
 	@ApiOperation(value = "Briše status iz baze podataka čiji ID odgovara vrednosti koja je prosleđena kao path varijabla")
 	public ResponseEntity<Status> deleteStatus(@PathVariable("id")Integer id) {
 		if(id == -100)
