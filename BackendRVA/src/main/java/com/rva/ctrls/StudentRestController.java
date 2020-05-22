@@ -27,6 +27,7 @@ import io.swagger.annotations.ApiOperation;
 
 @RestController
 @Api(tags = {"Student CRUD operacije"})
+@CrossOrigin
 public class StudentRestController {
 	@Autowired
 	private StudentRepository studentRepository;
@@ -73,7 +74,6 @@ public class StudentRestController {
 	}
 	
 	@PostMapping("studenti")
-	@CrossOrigin
 	@ApiOperation(value = "Dodaje studenta u bazu podataka")
 	public ResponseEntity<Student> insertStudent(@RequestBody Student student){
 		if(!studentRepository.existsById(student.getId())) {
@@ -84,7 +84,6 @@ public class StudentRestController {
 	}
 	
 	@PutMapping("studenti")
-	@CrossOrigin
 	@ApiOperation(value = "Modifikuje studenta u bazi podataka")
 	public ResponseEntity<Student> updateStudent(@RequestBody Student student) {
 		if(!studentRepository.existsById(student.getId()))
@@ -95,7 +94,6 @@ public class StudentRestController {
 	}
 	
 	@DeleteMapping("student/{id}")
-	@CrossOrigin
 	@ApiOperation(value = "Briše studenta iz baze podataka čiji ID odgovara vrednosti koja je prosleđena kao path varijabla")
 	public ResponseEntity<Student> deleteStudent(@PathVariable("id") Integer id) {
 		if(id == -100)

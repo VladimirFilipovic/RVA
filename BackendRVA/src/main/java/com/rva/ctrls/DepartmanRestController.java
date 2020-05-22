@@ -25,7 +25,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
-@Api(tags = {"Departman CRUD operacije"})
+@Api(tags = {"Departman CRUD operacije"})	
+@CrossOrigin
 public class DepartmanRestController {
 	@Autowired
 	DepartmanRepository departmanRepository;
@@ -62,7 +63,6 @@ public class DepartmanRestController {
 	}
 	
 	@PostMapping("departmani")
-	@CrossOrigin
 	@ApiOperation(value = "Dodaje departman u bazu podataka")
 	public ResponseEntity<Departman> insertDepartman(@RequestBody Departman departman) {
 		if(!departmanRepository.existsById(departman.getId())) {
@@ -73,7 +73,6 @@ public class DepartmanRestController {
 	}
 	
 	@PutMapping("departmani")
-	@CrossOrigin
 	@ApiOperation(value = "Modifikuje departman u bazi podataka")
 	public ResponseEntity<Departman> updateDepartman(@RequestBody Departman departman) {
 		if(!departmanRepository.existsById(departman.getId())) {
@@ -85,7 +84,6 @@ public class DepartmanRestController {
 	
 	@Transactional
 	@DeleteMapping("departman/{id}")
-	@CrossOrigin
 	@ApiOperation(value = "Briše departman iz baze podataka čiji ID odgovara vrednosti koja je prosleđena kao path varijabla")
 	public ResponseEntity<Departman> deleteDepartman(@PathVariable("id")Integer id) {
 		if(id == -100) {
