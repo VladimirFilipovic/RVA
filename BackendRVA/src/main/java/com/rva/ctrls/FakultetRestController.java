@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -51,6 +52,7 @@ public class FakultetRestController {
 	}
 	
 	@PostMapping("fakulteti")
+	@CrossOrigin
 	@ApiOperation(value = "Dodaje fakultet u bazu podataka")
 	public ResponseEntity<Fakultet> insertFakultet(@RequestBody Fakultet fakultet) {
 		if(!fakultetRepository.existsById(fakultet.getId())) {
@@ -61,6 +63,7 @@ public class FakultetRestController {
 	}
 	
 	@PutMapping("fakulteti")
+	@CrossOrigin
 	@ApiOperation(value = "Modifikuje fakultet u bazi podataka")
 	public ResponseEntity<Fakultet> updateFakultet(@RequestBody Fakultet fakultet) {
 		if(!fakultetRepository.existsById(fakultet.getId())) {
@@ -72,6 +75,7 @@ public class FakultetRestController {
 	
 	@Transactional
 	@DeleteMapping("fakultet/{id}")
+	@CrossOrigin
 	@ApiOperation(value = "Briše fakultet iz baze podataka čiji ID odgovara vrednosti koja je prosleđena kao path varijabla")
 	public ResponseEntity<Fakultet> deleteFakultet(@PathVariable("id") Integer id) {
 		if(id == -100)
