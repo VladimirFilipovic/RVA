@@ -32,6 +32,7 @@ import { FakultetComponent } from './components/fakultet/fakultet.component';
 import { DepartmanComponent } from './components/departman/departman.component';
 import { StudentComponent } from './components/student/student.component';
 import { StatusComponent } from './components/status/status.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { StatusComponent } from './components/status/status.component';
     MatDatepickerModule,
     MatSelectModule,
     HttpClientModule,
+    AppRoutingModule,
     FormsModule
   ],
   providers: [],
