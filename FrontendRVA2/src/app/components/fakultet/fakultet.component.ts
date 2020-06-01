@@ -39,3 +39,5 @@ export class FakultetComponent implements OnInit {
   }
 
 }
+
+//mislim da ce kod sbih classa biti frka update jer ti nije okej putanja npr fakulteti ti je get a get id ti je fakultet/id samo na to obrati paznju
