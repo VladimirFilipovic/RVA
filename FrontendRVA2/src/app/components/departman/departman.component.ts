@@ -1,3 +1,6 @@
+import { DepartmanDialogComponent } from './../dialogs/departman-dialog/departman-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Fakultet } from 'src/app/models/fakultet';
 import { DepartmanService } from './../../services/departman.service';
 import { Departman } from './../../models/departman';
 import { Component, OnInit, ViewChild } from '@angular/core';
@@ -12,7 +15,7 @@ import { MatSort } from '@angular/material/sort';
 })
 export class DepartmanComponent implements OnInit {
 
-  displayedColumns = ['id','naziv','oznaka','fakultet','actions'];
+  displayedColumns = ['id', 'naziv', 'oznaka', 'fakultet', 'actions'];
   dataSource: MatTableDataSource<Departman>;
   selektovanDepartman: Departman;
 
@@ -20,7 +23,8 @@ export class DepartmanComponent implements OnInit {
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
 
-  constructor(private departmanService: DepartmanService) { }
+  constructor(private departmanService: DepartmanService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -56,6 +60,20 @@ export class DepartmanComponent implements OnInit {
     filterValue = filterValue.trim();
     filterValue = filterValue.toLocaleLowerCase();
     this.dataSource.filter = filterValue;
+  }
+
+  public openDialog(flag: number, id?: number, naziv?: string, oznaka?: string, fakultet?: Fakultet) {
+    const dialogRef = this.dialog.open(DepartmanDialogComponent, {
+      data: {id, naziv, oznaka, fakultet}
+    });
+
+    dialogRef.componentInstance.flag = flag;
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 1) {
+        this.loadData();
+      }
+    });
   }
 
   selectRow(row: any) {

@@ -1,5 +1,5 @@
 export class Fakultet {
-  id:number
-  naziv:String
-  sediste:String
+  id: number;
+  naziv: string;
+  sediste: string;
 }

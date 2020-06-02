@@ -1,5 +1,5 @@
 export class Status {
-  id:number
-  naziv: String
-  oznaka: String
+  id: number;
+  naziv: string;
+  oznaka: string;
 }

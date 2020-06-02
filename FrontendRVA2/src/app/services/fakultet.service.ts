@@ -31,14 +31,15 @@ export class FakultetService {
   }
 
   public addFakultet(fakultet: Fakultet): void {
-    this.httpClient.post(this.API_URL, fakultet);
+    fakultet.id = 0;
+    this.httpClient.post(this.API_URL, fakultet).subscribe();
   }
 
   public updateFakultet(fakultet: Fakultet) {
-    this.httpClient.put(this.API_URL, fakultet);
+    this.httpClient.put(this.API_URL, fakultet).subscribe();
   }
 
   public deleteFakultet(id: number): void {
-    this.httpClient.delete(this.API_URL_Single + id);
+    this.httpClient.delete(this.API_URL_Single + id).subscribe();
   }
 }

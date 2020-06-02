@@ -33,6 +33,10 @@ import { DepartmanComponent } from './components/departman/departman.component';
 import { StudentComponent } from './components/student/student.component';
 import { StatusComponent } from './components/status/status.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FakultetDialogComponent } from './components/dialogs/fakultet-dialog/fakultet-dialog.component';
+import { StatusDialogComponent } from './components/dialogs/status-dialog/status-dialog.component';
+import { StudentDialogComponent } from './components/dialogs/student-dialog/student-dialog.component';
+import { DepartmanDialogComponent } from './components/dialogs/departman-dialog/departman-dialog.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { AppRoutingModule } from './app-routing.module';
     FakultetComponent,
     DepartmanComponent,
     StudentComponent,
-    StatusComponent
+    StatusComponent,
+    FakultetDialogComponent,
+    StatusDialogComponent,
+    StudentDialogComponent,
+    DepartmanDialogComponent
   ],
   imports: [
     BrowserModule,

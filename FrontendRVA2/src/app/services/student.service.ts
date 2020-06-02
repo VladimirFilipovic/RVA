@@ -26,15 +26,16 @@ export class StudentService {
   }
 
   public addStudent(student: Student) {
-    this.httpClient.post(this.API_URL,student);
+    student.id = 0;
+    this.httpClient.post(this.API_URL, student).subscribe();
   }
 
   public updateStudent(student: Student) {
-    this.httpClient.put(this.API_URL,student);
+    this.httpClient.put(this.API_URL, student).subscribe();
   }
 
-  public deleteStudent(id: number) {
-    this.httpClient.delete(this.API_URL_BYID  + id);
+  public deleteStudent(brojIndeksa: string) {
+    this.httpClient.delete(this.API_URL_BYID  + brojIndeksa).subscribe();
   }
 
 }

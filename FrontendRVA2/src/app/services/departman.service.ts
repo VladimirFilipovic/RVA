@@ -30,14 +30,15 @@ export class DepartmanService {
   }
 
   public addDepartman(departman: Departman): void {
-    this.httpClient.post(this.API_URL, departman);
+    departman.id = 0;
+    this.httpClient.post(this.API_URL, departman).subscribe();
   }
 
   public updateDepartman(departman: Departman): void {
-    this.httpClient.put(this.API_URL, departman);
+    this.httpClient.put(this.API_URL, departman).subscribe();
   }
 
   public deleteDepartman(id: number): void {
-    this.httpClient.delete(this.API_URL_Single + id);
+    this.httpClient.delete(this.API_URL_Single + id).subscribe();
   }
 }
