@@ -34,8 +34,8 @@ export class StudentService {
     this.httpClient.put(this.API_URL, student).subscribe();
   }
 
-  public deleteStudent(brojIndeksa: string) {
-    this.httpClient.delete(this.API_URL_BYID  + brojIndeksa).subscribe();
+  public deleteStudent(id: number) {
+    this.httpClient.delete(this.API_URL_BYID  + id).subscribe();
   }
 
 }

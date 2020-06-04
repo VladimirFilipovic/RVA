@@ -54,7 +54,7 @@ export class StudentDialogComponent implements OnInit {
   }
 
   public delete(): void {
-    this.studentService.deleteStudent(this.data.brojIndeksa);
+    this.studentService.deleteStudent(this.data.id);
     this.snackBar.open('Uspešno obrisan student ' + this.data.ime, 'U redu', {
       duration: 2500
     });
